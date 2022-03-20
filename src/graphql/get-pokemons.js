@@ -11,3 +11,24 @@ query MyQuery($limit: Int!){
   }
 }
 `
+
+export const GET_POKEMON_DETAIL = gql`
+query MyQuery($name: Int!) {
+    pokemon(name: $name) {
+      height
+      name
+      stats {
+        stat {
+          name
+        }
+        base_stat
+      }
+      types {
+        type {
+          name
+        }
+      }
+      weight
+    }
+}
+`
