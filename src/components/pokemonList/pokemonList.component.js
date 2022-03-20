@@ -3,7 +3,7 @@ import {BackgroundDiv, IdNumber, PokemonImg, PokemonWrapper, PokemonTitle } from
 
 export function PokemonList({ pokemon }) {
   return (
-    <BackgroundDiv>
+    <BackgroundDiv onClick={() => console.log({pokemon})}>
       <IdNumber><small>{pokemon.id > 9 ? '#': '#0'}{pokemon.id}</small></IdNumber>
       <PokemonImg src={pokemon.artwork} alt={pokemon.name}></PokemonImg>
       <PokemonWrapper>

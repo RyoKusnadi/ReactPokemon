@@ -32,6 +32,10 @@ export const BackgroundDiv = styled.div`
   letter-spacing: 4px;
   text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
   margin: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const IdNumber = styled.div`
