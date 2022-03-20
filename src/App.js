@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 import './index.css';
@@ -9,14 +10,17 @@ import { PokemonsPage } from './components/pokemonList/pokemonList.pages'
 
 import {Header} from './components/header/header.component'
 
+
 function App() {
   const client = new ApolloClient({
     uri: 'https://graphql-pokeapi.graphcdn.app/',
   })
   return (
     <ApolloProvider client={client}>
-      <Header/>
-      <PokemonsPage/>
+    <Header/>
+    <Switch>
+      <Route path="/" component={PokemonsPage} exact />
+    </Switch>
     </ApolloProvider>
   );
 }
