@@ -6,7 +6,7 @@ query MyQuery($limit: Int!){
     results {
       id
       name
-      image
+      artwork
     }
   }
 }

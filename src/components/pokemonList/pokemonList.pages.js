@@ -7,7 +7,7 @@ import {Button, ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.
 
 export function PokemonsPage() {
   const gqlVariables = {
-    limit: 18,
+    limit: 12,
   };
 
   const { loading, error, data } = useQuery(GET_POKEMONS, {

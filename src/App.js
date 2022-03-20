@@ -14,10 +14,8 @@ function App() {
   })
   return (
     <ApolloProvider client={client}>
-    <main>
       <Header/>
       <PokemonsPage/>
-    </main>
     </ApolloProvider>
   );
 }

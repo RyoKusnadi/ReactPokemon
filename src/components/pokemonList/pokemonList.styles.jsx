@@ -4,8 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 0.5rem;
-  margin: auto;
+  margin: 0;
   justify-content: space-between;
 `;
 
@@ -32,6 +31,7 @@ export const BackgroundDiv = styled.div`
   color: white;
   letter-spacing: 4px;
   text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+  margin: 20px;
 `;
 
 export const IdNumber = styled.div`

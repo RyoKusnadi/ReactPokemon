@@ -5,7 +5,7 @@ export function PokemonList({ pokemon }) {
   return (
     <BackgroundDiv>
       <IdNumber><small>{pokemon.id > 9 ? '#': '#0'}{pokemon.id}</small></IdNumber>
-      <PokemonImg src={pokemon.image} alt={pokemon.name}></PokemonImg>
+      <PokemonImg src={pokemon.artwork} alt={pokemon.name}></PokemonImg>
       <PokemonWrapper>
         <PokemonTitle>{pokemon.name}</PokemonTitle>
       </PokemonWrapper>
