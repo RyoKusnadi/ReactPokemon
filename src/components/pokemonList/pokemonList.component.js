@@ -1,14 +1,14 @@
 import React from 'react'
+import { Inner, PokemonItemName, PokemonItemImage, PokemonItemImageDetail } from './pokemonList.styles.jsx'
 
 export function PokemonList({ pokemon }) {
   return (
-    <div className="pokemon">
-      <div className="pokemon__name">
-        <h1>{pokemon.name}</h1>
-      </div>
-      <div className="pokemon__image">
-        <img src={pokemon.image} alt={pokemon.name} />
-      </div>
-    </div>
+    <Inner>
+        <PokemonItemName>{pokemon.name}
+          <PokemonItemImage>
+            <PokemonItemImageDetail src={pokemon.image} alt={pokemon.name}/>
+          </PokemonItemImage>
+        </PokemonItemName>
+    </Inner>
   )
 }

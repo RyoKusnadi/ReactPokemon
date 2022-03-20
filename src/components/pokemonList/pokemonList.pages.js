@@ -1,7 +1,9 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { PokemonList } from '../../components/pokemonList/pokemonList.component'
+import { PokemonList } from './pokemonList.component'
 import { GET_POKEMONS } from '../../graphql/get-pokemons'
+
+import {Wrapper} from './pokemonList.styles.jsx'
 
 export function PokemonsPage() {
   const gqlVariables = {
@@ -17,8 +19,8 @@ export function PokemonsPage() {
   console.log('Response from server', data);
 
   return (
-    <div className="container">
+    <Wrapper>
       {data.pokemons.results.map(pokemon => <PokemonList key={pokemon.id} pokemon={pokemon} />)}
-    </div>
+    </Wrapper>
   )
 }
