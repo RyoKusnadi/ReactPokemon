@@ -13,7 +13,7 @@ query MyQuery($limit: Int!){
 `
 
 export const GET_POKEMON_DETAIL = gql`
-query MyQuery($name: Int!) {
+query MyQuery($name: String!) {
     pokemon(name: $name) {
       height
       name

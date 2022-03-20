@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export function PokemonList({ pokemon }) {
   const history = useNavigate();
   return (
-    <BackgroundDiv onClick={() => history(`/pokemon/${pokemon.id}`)}>
+    <BackgroundDiv onClick={() => history(`/pokemon/${pokemon.name}`)}>
       <IdNumber><small>{pokemon.id > 9 ? '#': '#0'}{pokemon.id}</small></IdNumber>
       <PokemonImg src={pokemon.artwork} alt={pokemon.name}></PokemonImg>
       <PokemonWrapper>
