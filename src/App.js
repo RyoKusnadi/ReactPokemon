@@ -16,7 +16,7 @@ function App() {
     <ApolloProvider client={client}>
     <main>
       <Header/>
-      <PokemonsPage />
+      <PokemonsPage/>
     </main>
     </ApolloProvider>
   );

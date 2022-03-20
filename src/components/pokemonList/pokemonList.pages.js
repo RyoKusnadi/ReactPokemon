@@ -3,11 +3,11 @@ import { useQuery } from '@apollo/react-hooks'
 import { PokemonList } from './pokemonList.component'
 import { GET_POKEMONS } from '../../graphql/get-pokemons'
 
-import {Wrapper} from './pokemonList.styles.jsx'
+import {Button, ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.styles.jsx'
 
 export function PokemonsPage() {
   const gqlVariables = {
-    limit: 10,
+    limit: 18,
   };
 
   const { loading, error, data } = useQuery(GET_POKEMONS, {
@@ -20,7 +20,13 @@ export function PokemonsPage() {
 
   return (
     <Wrapper>
-      {data.pokemons.results.map(pokemon => <PokemonList key={pokemon.id} pokemon={pokemon} />)}
+      <h1>Pokemon List</h1>
+      <PokemonContainer>
+        <ContainerDetail>
+          {data.pokemons.results.map(pokemon => <PokemonList key={pokemon.id} pokemon={pokemon} />)}
+        </ContainerDetail>
+        <Button>Load more</Button>
+      </PokemonContainer>
     </Wrapper>
   )
 }
