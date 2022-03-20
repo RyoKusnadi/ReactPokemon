@@ -1,9 +1,9 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { Pokemon } from '../components/Pokemon'
-import { GET_POKEMONS } from '../graphql/get-pokemons'
+import { PokemonList } from '../../components/pokemonList/pokemonList.component'
+import { GET_POKEMONS } from '../../graphql/get-pokemons'
 
-export function PokemonsContainer() {
+export function PokemonsPage() {
   const gqlVariables = {
     limit: 10,
   };
@@ -18,7 +18,7 @@ export function PokemonsContainer() {
 
   return (
     <div className="container">
-      {data.pokemons.results.map(pokemon => <Pokemon key={pokemon.id} pokemon={pokemon} />)}
+      {data.pokemons.results.map(pokemon => <PokemonList key={pokemon.id} pokemon={pokemon} />)}
     </div>
   )
 }

@@ -1,19 +1,24 @@
+import React, { useEffect } from 'react';
+
+import './App.css';
+
+
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { PokemonsContainer } from './pages/PokemonsContainer'
-import './App.css';
+import { PokemonsPage } from './pages/pokemons/pokemons.component'
 
 function App() {
   const client = new ApolloClient({
     uri: 'https://graphql-pokeapi.graphcdn.app/',
   })
   return (
-  <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
     <main>
-      <PokemonsContainer />
+      <PokemonsPage />
     </main>
-  </ApolloProvider>
+    </ApolloProvider>
   );
 }
+
 
 export default App;

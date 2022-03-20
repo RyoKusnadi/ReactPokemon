@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Pokemon({ pokemon }) {
+export function PokemonList({ pokemon }) {
   return (
     <div className="pokemon">
       <div className="pokemon__name">
