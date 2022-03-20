@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { Pokemon } from './Pokemon'
+import { Pokemon } from '../components/Pokemon'
 import { GET_POKEMONS } from '../graphql/get-pokemons'
 
 export function PokemonsContainer() {

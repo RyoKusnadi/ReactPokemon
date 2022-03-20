@@ -1,8 +1,6 @@
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { PokemonsContainer } from './component/PokemonsContainer'
-
-import logo from './logo.svg';
+import { PokemonsContainer } from './pages/PokemonsContainer'
 import './App.css';
 
 function App() {
