@@ -21,7 +21,7 @@ function App() {
     <Header/>
     <Routes>
       <Route path="/" element={<PokemonsPage/>} exact />
-      <Route path="/pokemon/:pokemonName" element={<PokemonDetailPage/>} />
+      <Route path="/:pokemonName" element={<PokemonDetailPage/>} />
     </Routes>
     </ApolloProvider>
   );

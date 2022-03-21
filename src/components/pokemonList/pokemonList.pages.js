@@ -7,7 +7,7 @@ import {Button, ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.
 
 export function PokemonsPage() {
   const gqlVariables = {
-    limit: 12,
+    limit: 20,
   };
 
   const { loading, error, data } = useQuery(GET_POKEMONS, {
@@ -16,7 +16,7 @@ export function PokemonsPage() {
   
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log('Response from server', data);
+  // console.log('Response from server', data);
 
   return (
     <Wrapper>

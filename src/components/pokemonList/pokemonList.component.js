@@ -3,13 +3,14 @@ import {BackgroundDiv, IdNumber, PokemonImg, PokemonWrapper, PokemonTitle } from
 import { useNavigate } from "react-router-dom";
 
 export function PokemonList({ pokemon }) {
-  const history = useNavigate();
+  const navigate = useNavigate();
+  const toDetail =  () => navigate( `/${pokemon.name}`,  { state: { image: pokemon.artwork } });
   return (
-    <BackgroundDiv onClick={() => history(`/pokemon/${pokemon.name}`)}>
-      <IdNumber><small>{pokemon.id > 9 ? '#': '#0'}{pokemon.id}</small></IdNumber>
+    <BackgroundDiv onClick = {()=>{toDetail()}}>
+      <IdNumber>{pokemon.name}</IdNumber>
       <PokemonImg src={pokemon.artwork} alt={pokemon.name}></PokemonImg>
       <PokemonWrapper>
-        <PokemonTitle>{pokemon.name}</PokemonTitle>
+        <PokemonTitle>Total Owned:{`${pokemon.id.toString().padStart(3, '0')}`}</PokemonTitle>
       </PokemonWrapper>
     </BackgroundDiv>
   )
