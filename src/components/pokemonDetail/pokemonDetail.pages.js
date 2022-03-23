@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useParams, useLocation  } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks'
 import { GET_POKEMON_DETAIL } from '../../graphql/get-pokemons';
 import { Wrapper, ImageContainer, Image, PokemonContainer, Text } from './pokemonDetail.styles';
 import { PokemonDetail } from './pokemonDetail.component';
 import { PokemonStatus } from './pokemonStatus.component';
+import { addtoPokedexAction } from '../../action/action';
 
 export function PokemonDetailPage() {
   const {pokemonName} = useParams();
@@ -12,8 +14,13 @@ export function PokemonDetailPage() {
   const { image } = state;
 
   const timer = useRef();
+  const dispatch = useDispatch();
+
   const [load, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [pokeInfo, setPokeInfo] = useState({});
+  const [openSuccessDialog, setOpenSuccessDialog] = useState(false);
+  const [openFailedDialog, setOpenFailedDialog] = useState(false);
 
   const handleButtonClick = () => {
       if (!load) {
@@ -23,14 +30,28 @@ export function PokemonDetailPage() {
               let catched = Math.random() < 0.5;
               setSuccess(catched);
               if (catched) {
-                  // True Condition
+                setOpenSuccessDialog(true);
+                console.log("Test")
               } else {
-                  // False Condition
+                setOpenFailedDialog(true);
               }
               setLoading(false);
           }, 1000);
       }
   };
+
+  const addToPokedex = (name) => {
+    let _poke = { ...pokeInfo };
+    _poke['nickName'] = name;
+    dispatch(addtoPokedexAction(_poke));
+}
+
+  // ========= lifecycle ======
+  useEffect(() => {
+    return () => {
+        clearTimeout(timer.current);
+    };
+  }, []);
 
   const gqlVariables = {
     name: pokemonName,
@@ -55,8 +76,6 @@ export function PokemonDetailPage() {
                   {data.pokemon.types.map(data => <PokemonDetail key={data.type.name} data={data.type} />)}
                   {data.pokemon.stats.map(data => <PokemonStatus key={data.stat.name} data={data} />)}
                 <button 
-                  success={success ? true : undefined} 
-                  loading={loading ? true : undefined}
                   onClick={handleButtonClick} 
                   > Catch 
                 </button>

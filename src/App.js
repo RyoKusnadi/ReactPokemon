@@ -1,5 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './config/store';
 
 import './App.css';
 import './index.css';
@@ -17,13 +20,17 @@ function App() {
     uri: 'https://graphql-pokeapi.graphcdn.app/',
   })
   return (
-    <ApolloProvider client={client}>
-    <Header/>
-    <Routes>
-      <Route path="/" element={<PokemonsPage/>} exact />
-      <Route path="/:pokemonName" element={<PokemonDetailPage/>} />
-    </Routes>
-    </ApolloProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ApolloProvider client={client}>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<PokemonsPage/>} exact />
+          <Route path="/:pokemonName" element={<PokemonDetailPage/>} />
+        </Routes>
+        </ApolloProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 
