@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useParams, useLocation  } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks'
 import { GET_POKEMON_DETAIL } from '../../graphql/get-pokemons';
 import { Wrapper, ImageContainer, Image, PokemonContainer, Text } from './pokemonDetail.styles';
 import { PokemonDetail } from './pokemonDetail.component';
 import { PokemonStatus } from './pokemonStatus.component';
-import { addtoPokedexAction } from '../../action/action';
+// import { addtoPokedexAction } from '../../action/action';
 
 export function PokemonDetailPage() {
   const {pokemonName} = useParams();
@@ -14,37 +14,37 @@ export function PokemonDetailPage() {
   const { image } = state;
 
   const timer = useRef();
-  const dispatch = useDispatch();
+// const dispatch = useDispatch();
 
-  const [load, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [pokeInfo, setPokeInfo] = useState({});
-  const [openSuccessDialog, setOpenSuccessDialog] = useState(false);
-  const [openFailedDialog, setOpenFailedDialog] = useState(false);
+  // const [load, setLoading] = useState(false);
+  // const [success, setSuccess] = useState(false);
+  // const [pokeInfo, setPokeInfo] = useState({});
+  // const [openSuccessDialog, setOpenSuccessDialog] = useState(false);
+  // const [openFailedDialog, setOpenFailedDialog] = useState(false);
 
-  const handleButtonClick = () => {
-      if (!load) {
-          setSuccess(false);
-          setLoading(true);
-          timer.current = window.setTimeout(() => {
-              let catched = Math.random() < 0.5;
-              setSuccess(catched);
-              if (catched) {
-                setOpenSuccessDialog(true);
-                console.log("Test")
-              } else {
-                setOpenFailedDialog(true);
-              }
-              setLoading(false);
-          }, 1000);
-      }
-  };
+//   const handleButtonClick = () => {
+//       if (!load) {
+//           setSuccess(false);
+//           setLoading(true);
+//           timer.current = window.setTimeout(() => {
+//               let catched = Math.random() < 0.5;
+//               setSuccess(catched);
+//               if (catched) {
+//                 setOpenSuccessDialog(true);
+//                 console.log("Test")
+//               } else {
+//                 setOpenFailedDialog(true);
+//               }
+//               setLoading(false);
+//           }, 1000);
+//       }
+//   };
 
-  const addToPokedex = (name) => {
-    let _poke = { ...pokeInfo };
-    _poke['nickName'] = name;
-    dispatch(addtoPokedexAction(_poke));
-}
+//   const addToPokedex = (name) => {
+//     let _poke = { ...pokeInfo };
+//     _poke['nickName'] = name;
+//     dispatch(addtoPokedexAction(_poke));
+// }
 
   // ========= lifecycle ======
   useEffect(() => {
