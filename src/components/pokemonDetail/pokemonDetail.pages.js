@@ -75,10 +75,6 @@ export function PokemonDetailPage() {
                 <Text>TYPES</Text>
                   {data.pokemon.types.map(data => <PokemonDetail key={data.type.name} data={data.type} />)}
                   {data.pokemon.stats.map(data => <PokemonStatus key={data.stat.name} data={data} />)}
-                <button 
-                  onClick={handleButtonClick} 
-                  > Catch 
-                </button>
             </div>
           </ImageContainer>
           <Text>MOVES</Text>
