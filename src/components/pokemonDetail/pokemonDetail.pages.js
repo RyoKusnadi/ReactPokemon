@@ -13,7 +13,7 @@ export function PokemonDetailPage() {
   const { state } = useLocation();
   const { image } = state;
 
-  const timer = useRef();
+  // const timer = useRef();
 // const dispatch = useDispatch();
 
   // const [load, setLoading] = useState(false);
@@ -47,11 +47,11 @@ export function PokemonDetailPage() {
 // }
 
   // ========= lifecycle ======
-  useEffect(() => {
-    return () => {
-        clearTimeout(timer.current);
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //       clearTimeout(timer.current);
+  //   };
+  // }, []);
 
   const gqlVariables = {
     name: pokemonName,
