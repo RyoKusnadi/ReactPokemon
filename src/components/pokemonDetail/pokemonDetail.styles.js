@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   @media (max-width: 800px) {
-    justify-content: center;
+    max-width: 50%;
   }
 `
 export const Image = styled.img`
@@ -25,13 +25,7 @@ export const Image = styled.img`
 `;
 
 export const PokemonContainer = styled.div`
-    width: 100%;
     margin-left: 32px;
-
-    @media (max-width: 800px) {
-      margin-left: 0;
-      margin-top: 32px;
-    }
 `;
 
 export const DetailContainer = styled.div`
@@ -44,4 +38,8 @@ export const Text = styled.h3`
   height: 18px;
   margin: 10px;
   border-bottom: 10px;
+  
+  @media (max-width: 800px) {
+    font-size: 0.8em;
+  }
 `
