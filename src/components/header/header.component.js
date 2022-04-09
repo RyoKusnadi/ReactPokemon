@@ -18,9 +18,6 @@ export function Header() {
       <Link to="/" style={linkStyle}>
         Home
       </Link>
-      <Link to="/MyPokemon" style={linkStyle}>
-        My Pokemon
-      </Link>
     </NavUnlisted>
   );
 }
