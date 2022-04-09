@@ -7,7 +7,7 @@ import {Button, ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.
 
 export function PokemonsPage() {
   const gqlVariables = {
-    limit: 20,
+    limit: 200,
   };
 
   const { loading, error, data } = useQuery(GET_POKEMONS, {
@@ -25,7 +25,6 @@ export function PokemonsPage() {
         <ContainerDetail>
           {data.pokemons.results.map(pokemon => <PokemonList key={pokemon.id} pokemon={pokemon} />)}
         </ContainerDetail>
-        <Button>Load more</Button>
       </PokemonContainer>
     </Wrapper>
   )
