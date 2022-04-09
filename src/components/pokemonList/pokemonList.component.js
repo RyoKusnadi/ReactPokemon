@@ -10,7 +10,7 @@ export function PokemonList({ pokemon }) {
       <IdNumber>{pokemon.name}</IdNumber>
       <PokemonImg src={pokemon.artwork} alt={pokemon.name}></PokemonImg>
       <PokemonWrapper>
-        <PokemonTitle>Total Owned:{`${pokemon.id.toString().padStart(3, '0')}`}</PokemonTitle>
+        <PokemonTitle>{`${pokemon.id.toString().padStart(3, '0')}`}</PokemonTitle>
       </PokemonWrapper>
     </BackgroundDiv>
   )
