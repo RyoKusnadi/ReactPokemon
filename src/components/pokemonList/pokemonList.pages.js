@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { PokemonList } from './pokemonList.component'
 import { GET_POKEMONS } from '../../graphql/get-pokemons'
 
-import {Button, ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.styles.jsx'
+import {ContainerDetail, PokemonContainer, Wrapper} from './pokemonList.styles.jsx'
 
 export function PokemonsPage() {
   const gqlVariables = {
